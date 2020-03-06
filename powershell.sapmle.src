@@ -1,0 +1,22 @@
+ps:
+[Console]::OutputEncoding
+HeaderName        : iso-2022-jp
+WebName           : shift_jis
+CodePage          : 932
+
+$OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
+HeaderName        : utf-8
+WebName           : utf-8
+CodePage          : 65001
+
+// UTF-16（リトルエンディアン）
+var utf16 = System.Text.Encoding.Unicode;
+
+// ASCII（7ビット）
+var ascii = System.Text.Encoding.ASCII;
+
+Encoding sjisEnc = Encoding.GetEncoding("Shift_JIS");
+[console]::OutputEncoding = [System.Text.Encoding]::GetEncoding(932)
+
+chcp 932
+chcp 65001
