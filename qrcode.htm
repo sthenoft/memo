@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>sample</title>
+<script src="jquery-1.12.4.min.js"></script>
+<script src="qrcode.js"></script>
+<script src="jquery.qrcode.js"></script>
+<script>
+function key() {
+	if(13 == event.keyCode) {
+		btn01();
+	}
+}
+
+function btn01(){
+	$('canvas').remove();
+	let _size = Math.floor(txtIn.value.length / 10) * 32 + 64;
+	$('#qrcode').qrcode({width: _size, height: _size, text: txtIn.value});
+}
+</script>
+</head>
+<body>
+<textarea id="txtIn" onkeydown="key();"></textarea><button onclick="btn01();">GO</button>
+<hr>
+<div id="qrcode"></div>
+</body></html>
